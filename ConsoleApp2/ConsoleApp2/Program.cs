@@ -6,42 +6,102 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            while (true)
+            {
+                Condition();
+                Console.WriteLine("Do you want to exit? Press Y to quit or any key to run the program again");
+                var selection = Console.ReadLine();
+                if (selection == "Y")
+                {
+                    Console.WriteLine("Bye!");
+                    break;
+                }
+            }
+        }
 
-            Console.WriteLine("Press 1 to calculate circle area or press 2 to calculate right triangle area");
+        private static double Diametr()
+        {
+            Console.WriteLine("Enter diametr");
+            return Convert.ToDouble(Console.ReadLine());
+        }
+
+        private static double Radius(double d)
+        {
+            return d / 2;
+        }
+
+        private static double CircleArea(double r)
+        {
+            return Math.PI * Math.Pow(r, 2);
+        }
+
+        private static double Length(double r)
+        {
+            return 2 * Math.PI * r;
+        }
+
+        private static void Circle()
+        {
+            var diameter = Diametr();
+
+            var radius = Radius(diameter);
+
+            var cirarea = CircleArea(radius);
+            Console.WriteLine($"The area of a circle is {cirarea}");
+
+            var length = Length(radius);
+            Console.WriteLine($"The circumference is {length}");
+        }
+
+        //--------------------
+
+        private static double EnterCat1()
+        {
+            Console.WriteLine("Enter Cathetus1");
+            return Convert.ToDouble(Console.ReadLine());
+        }
+        private static double EnterCat2()
+        {
+            Console.WriteLine("Enter Cathetus2");
+            return Convert.ToDouble(Console.ReadLine());
+        }
+
+        private static double Hipotenuse(double c1, double c2)
+        {
+            return Math.Sqrt(Math.Pow(c1, 2) + Math.Pow(c2, 2));
+        }
+
+        private static double TriangleArea(double c1, double c2)
+        {
+            return 0.5 * c1 * c2;
+        }
+
+        private static void Triangle()
+        {
+            var cat1 = EnterCat1();
+            var cat2 = EnterCat2();
+
+            var hip = Hipotenuse(cat1, cat2);
+            Console.WriteLine($"The hipothenuse is {hip}");
+
+            var trarea = TriangleArea(cat1, cat2);
+            Console.WriteLine($"The area is {trarea}");
+        }
+
+        private static void Condition()
+        {
+            Console.WriteLine("Press 1 to calculate circle area or press 2 to calculate right triangle area. Press some key to quit.");
             var num1 = Convert.ToInt32(Console.ReadLine());
 
             if (num1 == 1)
             {
-                Console.WriteLine("Enter diametr");
-                var diametr = Convert.ToDouble(Console.ReadLine());
-                var radius = diametr / 2;
-
-                var area = Math.PI * Math.Pow(radius, 2);
-                Console.WriteLine($"The area of a circle is {area}");
-
-                var length = 2 * Math.PI * radius;
-                Console.WriteLine($"The circumference is {length}");
+                Circle();
             }
 
             else if (num1 == 2)
             {
-                Console.WriteLine("Enter Cathetus1");
-                var cat1 = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Enter Cathetus2");
-                var cat2 = Convert.ToDouble(Console.ReadLine());
-
-                var hip = Math.Sqrt(Math.Pow(cat1, 2) + Math.Pow(cat2, 2));
-                Console.WriteLine($"The hipothenuse is {hip}");
-
-                var area = 0.5 * cat1 * cat2;
-                Console.WriteLine($"The area is {area}");
+                Triangle();
             }
-
-            else
-            {
-                Console.WriteLine("Please, use only 1 or 2 keys");
-            }
-            
         }
     }
 }
