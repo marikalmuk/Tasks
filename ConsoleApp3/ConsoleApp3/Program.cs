@@ -7,21 +7,39 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             Console.WriteLine("Enter Start number:");
-            int start_num = Convert.ToInt32(Console.ReadLine());
+            var start_num = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter End number:");
-            int end_num = Convert.ToInt32(Console.ReadLine());
+            var end_num = Convert.ToInt32(Console.ReadLine());
 
-            for (int header = start_num; header <= end_num; header++)
+            var tempStart = start_num - 1;
+
+            for (var row = tempStart; row <= end_num; row++)
             {
-                Console.WriteLine($"Header is: {header}");
-
-                for (int header2 = start_num; header2 <= end_num; header2++)
+                for (var col = tempStart; col <= end_num; col++)
                 {
-                    Console.WriteLine($"{header * header2}");
+                    if (row < start_num && col < start_num)
+                    {
+                        Console.Write("___");
+                        continue;
+                    }
+                    if (row < start_num)
+                    {
+                        Console.Write(col);
+                        continue;
+                    }
+                    if (col < start_num)
+                    {
+                        Console.Write(row);
+                        continue;
+                    }
+                    Console.Write($" {col * row} ");
                 }
+                Console.WriteLine();
             }
 
-
         }
+
     }
 }
+
+
