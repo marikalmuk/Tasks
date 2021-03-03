@@ -165,6 +165,7 @@ namespace ConsoleApp4
             {
                 Console.Write($"{i}\t");
             }
+            Console.WriteLine();
 
             //TASK 9 - enter a number, multiply all elements greater than 10 by modulus
             Console.WriteLine("Enter some value:");
@@ -178,6 +179,24 @@ namespace ConsoleApp4
                     Console.Write($"{i * t}\t");
                     t = i * t;
                 }
+            }
+
+            Console.WriteLine();
+            foreach (int i in random_numbers)
+            {
+                Console.Write($"{i}\t");
+            }
+            Console.WriteLine();
+
+            // TASK 10 - check if the array contains any zeros
+            foreach (int i in random_numbers)
+            {
+                if (i == 0)
+                {
+                    Console.WriteLine("Array contains '0'");
+                    break;
+                }
+                   // Console.WriteLine("No '0's in array"); ??????
             }
         }
     }
