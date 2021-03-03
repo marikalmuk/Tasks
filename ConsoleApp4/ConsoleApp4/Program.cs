@@ -12,18 +12,10 @@ namespace ConsoleApp4
 
             int[] random_numbers = new int[array_size];
             Random rand = new Random();
+
+            // TASK 1 - find and print the sum of all positive and negative numbers
             int pos_sum = 0;
             int neg_sum = 0;
-
-
-            int max = random_numbers[0];
-            int min = random_numbers[0];
-            int index_max = 0;
-            int index_min = 0;
-            int temp;
-            int temp2;
-
-
 
             for (int array_value = 0; array_value < array_size; array_value++)
             {
@@ -44,6 +36,12 @@ namespace ConsoleApp4
             Console.WriteLine($"Sum of positive numbers is { pos_sum}");
             Console.WriteLine($"Sum of positive numbers is {neg_sum}");
 
+            //TASK 2 - find and print the index of the largest and smallest element
+            int max = random_numbers[0];
+            int min = random_numbers[0];
+            int index_max = 0;
+            int index_min = 0;
+
             for (int number = 0; number < random_numbers.Length; number++)
             {
                 if (random_numbers[number] > max)
@@ -63,10 +61,14 @@ namespace ConsoleApp4
 
             Console.WriteLine();
 
-                temp = random_numbers[index_max];
-                random_numbers[index_max] = random_numbers[index_min];
-                random_numbers[index_min] = temp;
+            //TASK 3 - swap elements from step 2
+            int temp;
 
+            temp = random_numbers[index_max];
+            random_numbers[index_max] = random_numbers[index_min];
+            random_numbers[index_min] = temp;
+
+            //TASK 4 - print all array again
             foreach (int i in random_numbers)
             {
                 Console.Write($"{i}\t");
@@ -74,6 +76,7 @@ namespace ConsoleApp4
 
             Console.WriteLine();
 
+            //TASK 5 - check if the first 10 elements are positive
             bool allPositive = false;
             for (int i = 0; i < 3; i++)
             {
@@ -97,6 +100,7 @@ namespace ConsoleApp4
                 Console.WriteLine("some of first 3 elements are negative");
             }
 
+            //TASK 6 - check if the last 10 elements are negative
             int last = random_numbers.Length - 3;
             bool allNegative = false;
             for (int i = last; i < random_numbers.Length; i++)
@@ -119,10 +123,34 @@ namespace ConsoleApp4
             {
                 Console.WriteLine("some of last 3 elements are positive");
             }
+
+            //TASK 7 - print all odd elements, multiply each element to the previous one (for the first element multiply by 1)
+
+
+            bool IsEven(int a)
+            {
+                return (a % 2) == 0;
+            }
+
+            var n = 1;
+
+            foreach (int i in random_numbers)
+            {
+                if (!IsEven(i))
+                {
+
+                    Console.Write($"{i}\t");
+                    Console.WriteLine();
+                    n = i * n;
+
+                    Console.Write($"multiplied to previous {n}\t");
+                    n = i;
+                }
+            }
         }
     }
 
-   
+
 }
 
 
