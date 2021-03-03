@@ -31,13 +31,12 @@ namespace ConsoleApp4
                 {
                     pos_sum += random_numbers[array_value];
                 }
-
                 if (random_numbers[array_value] < 0)
                 {
                     neg_sum += random_numbers[array_value];
                 }
-
             }
+
             Console.WriteLine();
             Console.WriteLine($"Sum of positive numbers is { pos_sum}");
             Console.WriteLine($"Sum of positive numbers is {neg_sum}");
@@ -48,26 +47,18 @@ namespace ConsoleApp4
                 {
                     max = random_numbers[number];
                     index_max = number;
-
                 }
                 if (random_numbers[number] < min)
                 {
                     min = random_numbers[number];
                     index_min = number;
-
-
                 }
-
-
-
             }
             Console.WriteLine($"{max}, { min}");
             Console.WriteLine($"Index of largest element {index_max}");
             Console.WriteLine($"Index of smallest element {index_min}");
 
             Console.WriteLine();
-
-
 
             foreach (int i in random_numbers)
             {
@@ -90,7 +81,6 @@ namespace ConsoleApp4
                     allPositive = false;
                     break;
                 }
-
             }
             if (allPositive)
             {
