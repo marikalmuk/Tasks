@@ -138,7 +138,6 @@ namespace ConsoleApp4
             {
                 if (!IsEven(i))
                 {
-
                     Console.Write($"{i}\t");
                     Console.WriteLine();
                     n = i * n;
@@ -147,9 +146,41 @@ namespace ConsoleApp4
                     n = i;
                 }
             }
+
+            Console.WriteLine();
+            //TASK 8 - print all even elements, order them by descending
+
+            foreach (int i in random_numbers)
+            {
+                Array.Sort(random_numbers);
+
+                if (IsEven(i))
+                {
+                    Console.Write($"{i}\t");
+                }
+            }
+
+            Console.WriteLine();
+            foreach (int i in random_numbers)
+            {
+                Console.Write($"{i}\t");
+            }
+
+            //TASK 9 - enter a number, multiply all elements greater than 10 by modulus
+            Console.WriteLine("Enter some value:");
+            var m = Convert.ToInt32(Console.ReadLine());
+            var t = 1;
+
+            foreach (int i in random_numbers)
+            {
+                if (Math.Abs(i) > Math.Abs(m))
+                {
+                    Console.Write($"{i * t}\t");
+                    t = i * t;
+                }
+            }
         }
     }
-
 
 }
 
