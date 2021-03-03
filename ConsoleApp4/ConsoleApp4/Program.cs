@@ -14,11 +14,14 @@ namespace ConsoleApp4
             Random rand = new Random();
             int pos_sum = 0;
             int neg_sum = 0;
+
+
             int max = random_numbers[0];
             int min = random_numbers[0];
             int index_max = 0;
             int index_min = 0;
             int temp;
+            int temp2;
 
 
 
@@ -60,13 +63,15 @@ namespace ConsoleApp4
 
             Console.WriteLine();
 
-            foreach (int i in random_numbers)
-            {
                 temp = random_numbers[index_max];
                 random_numbers[index_max] = random_numbers[index_min];
                 random_numbers[index_min] = temp;
+
+            foreach (int i in random_numbers)
+            {
                 Console.Write($"{i}\t");
             }
+
             Console.WriteLine();
 
             bool allPositive = false;
@@ -82,14 +87,38 @@ namespace ConsoleApp4
                     break;
                 }
             }
+
             if (allPositive)
             {
                 Console.WriteLine("first 3 elements are positive");
             }
-            else { Console.WriteLine("some of first 3 elements are negative"); }
+            else
+            {
+                Console.WriteLine("some of first 3 elements are negative");
+            }
 
-            
-
+            int last = random_numbers.Length - 3;
+            bool allNegative = false;
+            for (int i = last; i < random_numbers.Length; i++)
+            {
+                if (random_numbers[i] <= 0)
+                {
+                    allNegative = true;
+                }
+                else
+                {
+                    allNegative = false;
+                    break;
+                }
+            }
+            if (allNegative)
+            {
+                Console.WriteLine("last 3 elements are negative");
+            }
+            else
+            {
+                Console.WriteLine("some of last 3 elements are positive");
+            }
         }
     }
 
