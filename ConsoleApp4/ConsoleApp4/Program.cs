@@ -189,15 +189,37 @@ namespace ConsoleApp4
             Console.WriteLine();
 
             // TASK 10 - check if the array contains any zeros
-            foreach (int i in random_numbers)
+            //foreach (int i in random_numbers)
+            //{
+            //    if (i == 0)
+            //    {
+            //        Console.WriteLine("Array contains '0'");
+            //        break;
+            //    }
+            //       // Console.WriteLine("No '0's in array"); ??????
+            //}
+
+            bool isNull (int [] Array)
             {
-                if (i == 0)
+                for (int i = 0; i < Array.Length; i++)
                 {
-                    Console.WriteLine("Array contains '0'");
-                    break;
+                    if (Array[i] == 0)
+                    {
+                        return true; 
+                    }
                 }
-                   // Console.WriteLine("No '0's in array"); ??????
+                return false;
             }
+
+            if (isNull(random_numbers))
+            {
+                Console.WriteLine("0 - yes");
+            }
+            else
+            {
+                Console.WriteLine("no");
+            }
+           
         }
     }
 
