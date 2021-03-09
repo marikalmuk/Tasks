@@ -262,13 +262,32 @@ namespace ConsoleApp4
             //TASK 5 - check if the first 10 elements are positive
 
             int[] arrayFirst3 = randomNumbers.Take(3).ToArray();
-            var allPositive = arrayFirst3.All(x => x > 0);
+            var allPositive = arrayFirst3.All(num => num > 0);
             Console.WriteLine($"Are first 3 random number positive - {allPositive}");
 
             //TASK 6 - check if the last 10 elements are negative
             int[] arrayLast3 = randomNumbers.Skip(randomNumbers.Length - 3).ToArray();
-            var allNegative = arrayLast3.All(x => x < 0);
+            var allNegative = arrayLast3.All(num => num < 0);
             Console.WriteLine($"Are last 3 random number negative - {allNegative}");
+
+            //TASK 7 - print all odd elements, multiply each element to the previous one (for the first element multiply by 1)
+
+            int[] oddArray = randomNumbers.Where(num => num % 2 > 0).ToArray();
+            
+            int prodactOfOdd = oddArray.Aggregate((result, item)  => result *= item);
+            Console.WriteLine($"Product of odd- {prodactOfOdd}");
+            // ???????????????
+
+
+            //TASK 8 - print all even elements, order them by descending
+
+            int[] evenArray = randomNumbers.Where(num => num % 2 == 0).ToArray();
+            var evenSorted = evenArray.OrderByDescending(num => num);
+            Console.WriteLine($"All even elements are sorted - ");
+            foreach (var num in evenSorted)
+            {
+                Console.WriteLine(num);
+            }
         }
 
     }
