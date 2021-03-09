@@ -274,20 +274,34 @@ namespace ConsoleApp4
 
             int[] oddArray = randomNumbers.Where(num => num % 2 > 0).ToArray();
             
-            int prodactOfOdd = oddArray.Aggregate((result, item)  => result *= item);
-            Console.WriteLine($"Product of odd- {prodactOfOdd}");
+            int productOfOdd = oddArray.Aggregate((result, item)  => result *= item);
+            Console.WriteLine($"Product of odd- {productOfOdd}");
             // ???????????????
 
 
             //TASK 8 - print all even elements, order them by descending
 
             int[] evenArray = randomNumbers.Where(num => num % 2 == 0).ToArray();
-            var evenSorted = evenArray.OrderByDescending(num => num);
-            Console.WriteLine($"All even elements are sorted - ");
+            int[] evenSorted = evenArray.OrderByDescending(num => num).ToArray();
+            Console.WriteLine($"All even elements are sorted -  ");
             foreach (var num in evenSorted)
             {
                 Console.WriteLine(num);
             }
+
+            //TASK 9 - enter a number, multiply all elements, which are greater than entered value by modulus
+
+            Console.WriteLine("Enter some value:");
+            var m = Convert.ToInt32(Console.ReadLine());
+
+            int[] greaterModulus = randomNumbers.Where(num => Math.Abs(num) > m).ToArray();
+            int product = greaterModulus.Aggregate((result, item) => result *= item);
+            Console.WriteLine($"Product of values, which are greater by Modulus than entered value- {product}");
+
+            // TASK 10 - check if the array contains any zeros
+
+            var isZero = randomNumbers.Any(num => num == 0);
+            Console.WriteLine($"Array contains zero - {isZero}");
         }
 
     }
