@@ -237,38 +237,38 @@ namespace ConsoleApp4
 
             var maxValue = randomNumbers.Max();
             Console.WriteLine($"max value is {maxValue}");
+            var indexMax = Array.FindIndex(randomNumbers, i => i == maxValue);
+            Console.WriteLine($"max index {indexMax}");
+
             var minValue = randomNumbers.Min();
             Console.WriteLine($"min value is {minValue}");
+            var indexMin = Array.FindIndex(randomNumbers, i => i == minValue);
+            Console.WriteLine($"min index {indexMin}");
 
-            int index1 = 0;
-            int firstValue1 = randomNumbers[index1];
-            int index2 = 0;
-            int firstValue2 = randomNumbers[index2];
+            //TASK 3 - swap elements from step 2
+            int temp;
 
-            for (randomNumbers[index1] = firstValue1; randomNumbers[index1] <= maxValue; index1++)
+            temp = randomNumbers[indexMax];
+            randomNumbers[indexMax] = randomNumbers[indexMin];
+            randomNumbers[indexMin] = temp;
+
+            // TASK 4 - print all array again
+            foreach (int i in randomNumbers)
             {
-                if (randomNumbers[index1] == maxValue)
-                {
-                    randomNumbers[index1] = maxValue;
-                    Console.WriteLine($"max index {index1}");
-                    break;
-                }
-                continue;
+                Console.Write($"{i}\t");
             }
+            Console.WriteLine();
 
-            for (randomNumbers[index2] = firstValue2; randomNumbers[index2] <= minValue; index2++)
-            {
-                if (randomNumbers[index2] == minValue)
-                {
-                    randomNumbers[index2] = minValue;
-                    Console.WriteLine($"min index {index2}");
-                    break;
-                }
-                continue;
-            }
+            //TASK 5 - check if the first 10 elements are positive
 
-            //TASK 3 - LINQ - swap elements from step 2
+            int[] arrayFirst3 = randomNumbers.Take(3).ToArray();
+            var allPositive = arrayFirst3.All(x => x > 0);
+            Console.WriteLine($"Are first 3 random number positive - {allPositive}");
 
+            //TASK 6 - check if the last 10 elements are negative
+            int[] arrayLast3 = randomNumbers.Skip(randomNumbers.Length - 3).ToArray();
+            var allNegative = arrayLast3.All(x => x < 0);
+            Console.WriteLine($"Are last 3 random number negative - {allNegative}");
         }
 
     }
