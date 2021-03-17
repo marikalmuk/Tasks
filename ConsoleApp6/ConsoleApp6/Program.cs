@@ -8,13 +8,14 @@ namespace ConsoleApp6
         {
 
             Circle circle1 = new Circle();
-
-            Console.WriteLine("Enter diametr");
-            circle1.Diametr = Convert.ToDouble(Console.ReadLine());
-            circle1.Radius = circle1.GetRadius();
-            circle1.CircleArea = circle1.GetCircleArea();
-            circle1.Length = circle1.GetLength();
             circle1.WriteInfo();
+
+            //Console.WriteLine("Enter diametr");
+            //circle1.Diametr = Convert.ToDouble(Console.ReadLine());
+            //circle1.Radius = circle1.GetRadius();
+            //circle1.CircleArea = circle1.GetCircleArea();
+            //circle1.Length = circle1.GetLength();
+            //circle1.WriteInfo();
 
             //Triangle triangle1 = new Triangle();
             //var catet1 = triangle1.EnterCat1();
@@ -38,54 +39,64 @@ namespace ConsoleApp6
         private double _radius;
         private double _cirarea;
         private double _length;
-        public double Diametr
+
+        public Circle()
         {
-            get
-            { return _diametr; }
-            set
-            {
-                _diametr = value;
-            }
+            Console.WriteLine("Enter diametr");
+            _diametr = Convert.ToDouble(Console.ReadLine());
+            _radius = _diametr / 2;
+            _cirarea = Math.PI * Math.Pow(_radius, 2);
+            _length = 2 * Math.PI * _radius;
+
         }
-        public double Radius
-        {
-            get
-            { return _radius; }
-            set
-            {
-                _radius = value;
-            }
-        }
-        public double GetRadius()
-        {
-            return _diametr / 2;
-        }
-        public double CircleArea
-        {
-            get
-            { return _cirarea; }
-            set
-            {
-                _cirarea = value;
-            }
-        }
-        public double GetCircleArea()
-        {
-            return Math.PI * Math.Pow(_radius, 2);
-        }
-        public double Length
-        {
-            get
-            { return _length; }
-            set
-            {
-                _length = value;
-            }
-        }
-        public double GetLength()
-        {
-            return 2 * Math.PI * _radius;
-        }
+        //public double Diametr
+        //{
+        //    get
+        //    { return _diametr; }
+        //    set
+        //    {
+        //        _diametr = value;
+        //    }
+        //}
+        //public double Radius
+        //{
+        //    get
+        //    { return _radius; }
+        //    set
+        //    {
+        //        _radius = value;
+        //    }
+        //}
+        //public double GetRadius()
+        //{
+        //    return _diametr / 2;
+        //}
+        //public double CircleArea
+        //{
+        //    get
+        //    { return _cirarea; }
+        //    set
+        //    {
+        //        _cirarea = value;
+        //    }
+        //}
+        //public double GetCircleArea()
+        //{
+        //    return Math.PI * Math.Pow(_radius, 2);
+        //}
+        //public double Length
+        //{
+        //    get
+        //    { return _length; }
+        //    set
+        //    {
+        //        _length = value;
+        //    }
+        //}
+        //public double GetLength()
+        //{
+        //    return 2 * Math.PI * _radius;
+        //}
         public void WriteInfo()
         {
             Console.WriteLine($"The area of a circle is {_cirarea}");
