@@ -6,16 +6,17 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            //Circle circle1 = new Circle();
-            //var diamentr = circle1.Diametr();
-            //var radius = circle1.Radius(diamentr);
-            //var cirarea = circle1.CircleArea(radius);
-            //Console.WriteLine($"The area of a circle is {cirarea}");
-            //var length = circle1.Length(radius);
-            //Console.WriteLine($"The circumference is {length}");
+
+            Circle circle1 = new Circle();
+
+            Console.WriteLine("Enter diametr");
+            circle1.Diametr = Convert.ToDouble(Console.ReadLine());
+            circle1.Radius = circle1.GetRadius();
+            circle1.CircleArea = circle1.GetCircleArea();
+            circle1.Length = circle1.GetLength();
+            circle1.WriteInfo();
 
             //Triangle triangle1 = new Triangle();
-
             //var catet1 = triangle1.EnterCat1();
             //var catet2 = triangle1.EnterCat2();
             //var hip = triangle1.Hipotenuse(catet1, catet2);
@@ -23,37 +24,74 @@ namespace ConsoleApp6
             //var trarea = triangle1.TriangleArea(catet1, catet2);
             //Console.WriteLine($"The area is {trarea}");
 
-            Trapezoid trap = new Trapezoid();
-            var baseA = trap.BaseA();
-            var baseB = trap.BaseB();
-            var midseg = trap.Midsegment(baseA, baseB);
-            Console.WriteLine($"The midsegment is {midseg}");
-
+            //Trapezoid trap = new Trapezoid();
+            //var baseA = trap.BaseA();
+            //var baseB = trap.BaseB();
+            //var midseg = trap.Midsegment(baseA, baseB);
+            //Console.WriteLine($"The midsegment is {midseg}");
         }
     }
 
     class Circle
     {
-        public double Diametr()
+        private double _diametr;
+        private double _radius;
+        private double _cirarea;
+        private double _length;
+        public double Diametr
         {
-            Console.WriteLine("Enter diametr");
-            return Convert.ToDouble(Console.ReadLine());
+            get
+            { return _diametr; }
+            set
+            {
+                _diametr = value;
+            }
         }
-        public double Radius(double d)
+        public double Radius
         {
-            return d / 2;
+            get
+            { return _radius; }
+            set
+            {
+                _radius = value;
+            }
         }
-        public double CircleArea(double r)
+        public double GetRadius()
         {
-            return Math.PI * Math.Pow(r, 2);
+            return _diametr / 2;
         }
-        public double Length(double r)
+        public double CircleArea
         {
-            return 2 * Math.PI * r;
+            get
+            { return _cirarea; }
+            set
+            {
+                _cirarea = value;
+            }
         }
+        public double GetCircleArea()
+        {
+            return Math.PI * Math.Pow(_radius, 2);
+        }
+        public double Length
+        {
+            get
+            { return _length; }
+            set
+            {
+                _length = value;
+            }
+        }
+        public double GetLength()
+        {
+            return 2 * Math.PI * _radius;
+        }
+        public void WriteInfo()
+        {
+            Console.WriteLine($"The area of a circle is {_cirarea}");
 
-
-
+            Console.WriteLine($"The circumference is {_length}");
+        }
     }
     class Triangle
     {
@@ -89,16 +127,11 @@ namespace ConsoleApp6
             Console.WriteLine("Enter Base B");
             return Convert.ToDouble(Console.ReadLine());
         }
-        public double Midsegment (double a, double b)
+        public double Midsegment(double a, double b)
         {
             return (a + b) / 2;
         }
-
-
     }
-
-
-
 }
 
 
