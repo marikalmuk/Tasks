@@ -6,141 +6,136 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-
             Circle circle1 = new Circle();
+            circle1.Diametr = ReadDouble("Enter diametr");
             circle1.WriteInfo();
 
-            //Console.WriteLine("Enter diametr");
-            //circle1.Diametr = Convert.ToDouble(Console.ReadLine());
-            //circle1.Radius = circle1.GetRadius();
-            //circle1.CircleArea = circle1.GetCircleArea();
-            //circle1.Length = circle1.GetLength();
-            //circle1.WriteInfo();
+            Triangle triangle1 = new Triangle();
+            triangle1.Cat1 = ReadDouble ("Enter Cathetus1");
+            triangle1.Cat2 = ReadDouble("Enter Cathetus2");
+            circle1.WriteInfo();
 
-            //Triangle triangle1 = new Triangle();
-            //var catet1 = triangle1.EnterCat1();
-            //var catet2 = triangle1.EnterCat2();
-            //var hip = triangle1.Hipotenuse(catet1, catet2);
-            //Console.WriteLine($"The hipothenuse is {hip}");
-            //var trarea = triangle1.TriangleArea(catet1, catet2);
-            //Console.WriteLine($"The area is {trarea}");
-
-            //Trapezoid trap = new Trapezoid();
-            //var baseA = trap.BaseA();
-            //var baseB = trap.BaseB();
-            //var midseg = trap.Midsegment(baseA, baseB);
-            //Console.WriteLine($"The midsegment is {midseg}");
+            Trapezoid trap = new Trapezoid();
+            trap.BaseA = ReadDouble("Enter Base A");
+            trap.BaseB = ReadDouble("Enter Base B");
+            Console.WriteLine(trap.Midsegment());
+        }
+        public static double ReadDouble (string s)
+        {
+            Console.WriteLine(s);
+            return Convert.ToDouble(Console.ReadLine());
         }
     }
 
     class Circle
     {
         private double _diametr;
-        private double _radius;
-        private double _cirarea;
-        private double _length;
-
         public Circle()
         {
-            Console.WriteLine("Enter diametr");
-            _diametr = Convert.ToDouble(Console.ReadLine());
-            _radius = _diametr / 2;
-            _cirarea = Math.PI * Math.Pow(_radius, 2);
-            _length = 2 * Math.PI * _radius;
-
+            _diametr = this.Diametr;
         }
-        //public double Diametr
-        //{
-        //    get
-        //    { return _diametr; }
-        //    set
-        //    {
-        //        _diametr = value;
-        //    }
-        //}
-        //public double Radius
-        //{
-        //    get
-        //    { return _radius; }
-        //    set
-        //    {
-        //        _radius = value;
-        //    }
-        //}
-        //public double GetRadius()
-        //{
-        //    return _diametr / 2;
-        //}
-        //public double CircleArea
-        //{
-        //    get
-        //    { return _cirarea; }
-        //    set
-        //    {
-        //        _cirarea = value;
-        //    }
-        //}
-        //public double GetCircleArea()
-        //{
-        //    return Math.PI * Math.Pow(_radius, 2);
-        //}
-        //public double Length
-        //{
-        //    get
-        //    { return _length; }
-        //    set
-        //    {
-        //        _length = value;
-        //    }
-        //}
-        //public double GetLength()
-        //{
-        //    return 2 * Math.PI * _radius;
-        //}
+        public double Diametr
+        {
+            get
+            { return _diametr; }
+            set
+            {
+                _diametr = value;
+            }
+        }
+        public double Radius
+        {
+            get
+            { return Diametr / 2; }
+        }
+        public double CircleArea
+        {
+            get
+            { return GetCircleArea(); }
+        }
+        public double GetCircleArea()
+        {
+            return Math.PI * Math.Pow(Radius, 2);
+        }
+        public double Length
+        {
+            get
+            { return 2 * Math.PI * Radius; }
+        }
         public void WriteInfo()
         {
-            Console.WriteLine($"The area of a circle is {_cirarea}");
-
-            Console.WriteLine($"The circumference is {_length}");
+            Console.WriteLine($"The area of a circle is {CircleArea}");
+            Console.WriteLine($"The circumference is {Length}");
         }
     }
     class Triangle
     {
-        public double EnterCat1()
+        private double _cat1;
+        private double _cat2;
+        public Triangle()
         {
-            Console.WriteLine("Enter Cathetus1");
-            return Convert.ToDouble(Console.ReadLine());
+            _cat1 = this.Cat1;
+            _cat2 = this.Cat2;
         }
-        public double EnterCat2()
+        public double Cat1
         {
-            Console.WriteLine("Enter Cathetus2");
-            return Convert.ToDouble(Console.ReadLine());
+            get => _cat1;
+            set
+            {
+                _cat1 = value;
+            }
         }
-        public double Hipotenuse(double c1, double c2)
+        public double Cat2
         {
-            return Math.Sqrt(Math.Pow(c1, 2) + Math.Pow(c2, 2));
+            get => _cat2;
+            set
+            {
+                _cat2 = value;
+            }
         }
-        public double TriangleArea(double c1, double c2)
+        public double Hipotenuse
         {
-            return 0.5 * c1 * c2;
+            get
+            { return Math.Sqrt(Math.Pow(Cat1, 2) + Math.Pow(Cat2, 2)); }
+        }
+        public double TriangleArea
+        {
+            get => 0.5 * Cat1 * Cat2;
+        }
+        public void WriteInfo()
+        {
+            Console.WriteLine($"The area of a circle is {Hipotenuse}");
+            Console.WriteLine($"The circumference is {TriangleArea}");
         }
     }
-
     class Trapezoid
     {
-        public double BaseA()
+        private double _baseA;
+        private double _baseB;
+        public Trapezoid()
         {
-            Console.WriteLine("Enter Base A");
-            return Convert.ToDouble(Console.ReadLine());
+            _baseA = this.BaseA;
+            _baseB = this.BaseB;
         }
-        public double BaseB()
+        public double BaseA
         {
-            Console.WriteLine("Enter Base B");
-            return Convert.ToDouble(Console.ReadLine());
+            get => _baseA;
+            set
+            {
+                _baseA = value;
+            }
         }
-        public double Midsegment(double a, double b)
+        public double BaseB
         {
-            return (a + b) / 2;
+            get => _baseB;
+            set
+            {
+                _baseB = value;
+            }
+        }
+        public double Midsegment()
+        {
+            return (BaseA + BaseB) / 2;
         }
     }
 }
