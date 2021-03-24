@@ -6,18 +6,14 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            Circle circle1 = new Circle();
-            circle1.Diametr = ReadDouble("Enter diametr");
+            
+            Circle circle1 = new Circle(ReadDouble("Enter diametr"));
             circle1.WriteInfo();
 
-            Triangle triangle1 = new Triangle();
-            triangle1.Cat1 = ReadDouble ("Enter Cathetus1");
-            triangle1.Cat2 = ReadDouble("Enter Cathetus2");
+            Triangle triangle1 = new Triangle(ReadDouble("Enter Cathetus1"), ReadDouble("Enter Cathetus2"));
             circle1.WriteInfo();
 
-            Trapezoid trap = new Trapezoid();
-            trap.BaseA = ReadDouble("Enter Base A");
-            trap.BaseB = ReadDouble("Enter Base B");
+            Trapezoid trap = new Trapezoid(ReadDouble("Enter Base A"), ReadDouble("Enter Base B"));
             Console.WriteLine(trap.Midsegment());
         }
         public static double ReadDouble (string s)
@@ -30,38 +26,36 @@ namespace ConsoleApp6
     class Circle
     {
         private double _diametr;
-        public Circle()
+        public Circle(double diametr)
         {
-            _diametr = this.Diametr;
+            this._diametr = diametr;
         }
-        public double Diametr
+
+        public double Diametr 
         {
-            get
-            { return _diametr; }
-            set
-            {
-                _diametr = value;
-            }
+            get => _diametr;
         }
+
         public double Radius
         {
-            get
-            { return Diametr / 2; }
+            get => Diametr / 2; 
         }
+
         public double CircleArea
         {
-            get
-            { return GetCircleArea(); }
+            get => GetCircleArea(); 
         }
+
         public double GetCircleArea()
         {
             return Math.PI * Math.Pow(Radius, 2);
         }
+
         public double Length
         {
-            get
-            { return 2 * Math.PI * Radius; }
+            get => 2 * Math.PI * Radius; 
         }
+
         public void WriteInfo()
         {
             Console.WriteLine($"The area of a circle is {CircleArea}");
@@ -72,36 +66,31 @@ namespace ConsoleApp6
     {
         private double _cat1;
         private double _cat2;
-        public Triangle()
+        public Triangle(double cat1, double cat2)
         {
-            _cat1 = this.Cat1;
-            _cat2 = this.Cat2;
+            this._cat1 = cat1;
+            this._cat2 = cat2;
         }
+
         public double Cat1
         {
             get => _cat1;
-            set
-            {
-                _cat1 = value;
-            }
         }
         public double Cat2
         {
             get => _cat2;
-            set
-            {
-                _cat2 = value;
-            }
         }
+
         public double Hipotenuse
         {
-            get
-            { return Math.Sqrt(Math.Pow(Cat1, 2) + Math.Pow(Cat2, 2)); }
+            get => Math.Sqrt(Math.Pow(Cat1, 2) + Math.Pow(Cat2, 2));
         }
+
         public double TriangleArea
         {
             get => 0.5 * Cat1 * Cat2;
         }
+
         public void WriteInfo()
         {
             Console.WriteLine($"The area of a circle is {Hipotenuse}");
@@ -112,26 +101,18 @@ namespace ConsoleApp6
     {
         private double _baseA;
         private double _baseB;
-        public Trapezoid()
+        public Trapezoid(double baseA, double baseB)
         {
-            _baseA = this.BaseA;
-            _baseB = this.BaseB;
+            this._baseA = baseA;
+            this._baseB = baseB;
         }
         public double BaseA
         {
             get => _baseA;
-            set
-            {
-                _baseA = value;
-            }
         }
         public double BaseB
         {
             get => _baseB;
-            set
-            {
-                _baseB = value;
-            }
         }
         public double Midsegment()
         {
