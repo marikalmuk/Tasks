@@ -9,13 +9,15 @@ namespace ConsoleApp8
         public string Sound { get; }
         public void Move();
         public void Print();
-    }
-    interface IFeed
-    {
         public void Feed(string f);
+
+    }
+    interface IEatable
+    {
+        public string FoodType { get; }
     }
 
-    class Lion : IAnimal, IFeed
+    class Lion : IAnimal
     {
         public Lion(string name)
         {
@@ -61,7 +63,7 @@ namespace ConsoleApp8
         }
     }
 
-    class Elephant : IAnimal, IFeed
+    class Elephant : IAnimal
     {
         public Elephant(string name)
         {
@@ -106,7 +108,7 @@ namespace ConsoleApp8
         }
     }
 
-    class Frog : IAnimal, IFeed
+    class Frog : IAnimal
     {
         public Frog(string name)
         {
@@ -151,7 +153,7 @@ namespace ConsoleApp8
         }
     }
 
-    class Pinguin : IAnimal, IFeed
+    class Pinguin : IAnimal
     {
         public Pinguin(string name)
         {
@@ -196,7 +198,7 @@ namespace ConsoleApp8
         }
     }
 
-    class Eagle : IAnimal, IFeed
+    class Eagle : IAnimal
     {
         public Eagle(string name)
         {
@@ -240,7 +242,7 @@ namespace ConsoleApp8
             Console.WriteLine("type={0}, name={1}, sound={2}", Type, Name, Sound);
         }
     }
-    class Fish : IAnimal, IFeed
+    class Fish : IAnimal
     {
         public Fish(string name)
         {
@@ -285,20 +287,38 @@ namespace ConsoleApp8
         }
     }
 
-    class Meat : IFeed
+    class Meat : IEatable
     {
-        public void Feed(string f)
-        { }
+        public Meat()
+        {
+            FoodType = "meat";
+        }
+        public string FoodType
+        {
+            get; set;
+        }
     }
-    class Grain : IFeed
+
+    class Grain : IEatable
     {
-        public void Feed(string f)
-        { }
+        public Grain ()
+        {
+            FoodType = "grain";
+        }
+        public string FoodType
+        {get;set; 
+        }
     }
-    class Fruit : IFeed
+    class Fruit : IEatable
     {
-        public void Feed(string f)
-        { }
+        public Fruit()
+        {
+            FoodType = "fruit";
+        }
+        public string FoodType
+        {
+            get; set;
+        }
     }
 
     class Zoo
@@ -315,22 +335,29 @@ namespace ConsoleApp8
 
             IAnimal[] animals = new IAnimal[] { lion, elephant, frog, pinguin, eagle, fish };
 
-            IFeed meat = new Meat();
-            IFeed grain = new Grain();
-            IFeed fruit = new Fruit();
+            Meat meat = new Meat();
+            Grain grain = new Grain();
+            Fruit fruit = new Fruit();
 
-            IFeed[] feeds = new IFeed[] { meat, grain, fruit };
+            IEatable[] food = new IEatable[] { meat, grain, fruit };
 
             foreach (var a in animals)
             {
                 a.Print();
                 a.Move();
 
-                foreach (var f in feeds)
+                foreach (var f in food)
                 {
                     a.Feed(f);
                 }
             }
         }
     }
+
+
+
+
 }
+
+
+
