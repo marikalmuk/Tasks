@@ -19,7 +19,7 @@
 //    {
 //        public Lion(string name)
 //        {
-//            Type = "Lion";
+//            Type = "Lion"
 
                 
 //        }

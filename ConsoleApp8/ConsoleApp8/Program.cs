@@ -9,7 +9,7 @@ namespace ConsoleApp8
         public string Sound { get; }
         public void Move();
         public void Print();
-        public void Feed(string f);
+        public void Feed(IEatable f );
 
     }
     interface IEatable
@@ -41,17 +41,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Lion -walk");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Lion eats meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Lion does not eat grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Lion does not eat fruit");
             }
@@ -87,17 +87,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Elephant -walk");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Elephant does not eat meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Elephant eats grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Elephant eats fruit");
             }
@@ -132,17 +132,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Frog -jump");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Frog does not eat meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Frog does not eat grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Frog does not eat fruit");
             }
@@ -177,17 +177,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Pinguin -walk");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Pinguin does not eat meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Pinguin does not eat grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Pinguin does not eat fruit");
             }
@@ -222,17 +222,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Eagle -fly");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Eagle eats meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Eagle eats grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Eagle eats fruit");
             }
@@ -266,17 +266,17 @@ namespace ConsoleApp8
         {
             Console.WriteLine("Fish -swim");
         }
-        public void Feed(string f)
+        public void Feed(IEatable f)
         {
-            if (f == "meat")
+            if (f is Meat)
             {
                 Console.WriteLine("Fish does not eat meat");
             }
-            if (f == "grain")
+            if (f is Grain)
             {
                 Console.WriteLine("Fish does not eat grain");
             }
-            if (f == "fruit")
+            if (f is Fruit)
             {
                 Console.WriteLine("Fish does not eat fruit");
             }
