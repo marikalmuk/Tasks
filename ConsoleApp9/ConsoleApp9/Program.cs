@@ -21,6 +21,9 @@ namespace ConsoleApp9
                 Console.WriteLine("Baton is passed to next player");
                 current = Swimmer;
                 Runner.PassesTo(current);
+
+                //current.PassesTo(Swimmer); // is not valid for a given context
+                //current.PassesTo(Player2); // nullReferenceExceptions
             }
             if (message == "action ended" && current is Swimmer)
             {
