@@ -13,12 +13,7 @@ public abstract class PlayerBase
     public void PassesTo(PlayerBase player)
     {
         Console.WriteLine(player.GetType().Name + " gets baton");
-
-    }
-    public virtual void StartAction()
-    {
-        Console.WriteLine(this.GetType().Name + " is " + _action);
-        var message = "action ended";
-        Baton.IsPassed(message, this);
+        Console.WriteLine(player.GetType().Name + " is " + _action);
+        Baton.IsPassedFrom(player);
     }
 }

@@ -7,12 +7,10 @@ public class Runner : PlayerBase
 
     }
 
-
-    public override void StartAction()
+    public void StartAction()
     {
         Console.WriteLine("Relay race stareded by" + this);
         Console.WriteLine(this + " is " + _action);
-        var message = "action ended";
-        Baton.IsPassed(message, this);
+        Baton.IsPassedFrom(this);
     }
 }

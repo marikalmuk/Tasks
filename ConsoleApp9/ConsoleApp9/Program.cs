@@ -18,9 +18,6 @@ namespace ConsoleApp9
             baton.Player4 = shooter;
 
             runner.StartAction();
-            swimmer.StartAction();
-            cyclist.StartAction();
-            shooter.StartAction();
         }
     }
 }

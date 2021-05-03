@@ -3,7 +3,7 @@
 
 public interface IBaton
 {
-    void IsPassed(string message, PlayerBase player);
+    void IsPassedFrom(PlayerBase player);
 }
 
 public class Baton : IBaton
@@ -13,21 +13,21 @@ public class Baton : IBaton
     public Сyclist Player3 { get; set; }
     public Shooter Player4 { get; set; }
 
-    public void IsPassed(string message, PlayerBase current)
+    public void IsPassedFrom(PlayerBase current)
     {
-        if (message == "action ended" && current is Runner)
+        if (current is Runner)
         {
             Console.WriteLine("Baton is passed to next player");
             current.PassesTo(Player2);
             return;
         }
-        if (message == "action ended" && current is Swimmer)
+        if (current is Swimmer)
         {
             Console.WriteLine("Baton is passed to next player");
             current.PassesTo(Player3);
             return;
         }
-        if (message == "action ended" && current is Сyclist)
+        if (current is Сyclist)
         {
             Console.WriteLine("Baton is passed to next player");
             current.PassesTo(Player4);
@@ -39,4 +39,5 @@ public class Baton : IBaton
             return;
         }
     }
+
 }
