@@ -10,7 +10,7 @@ public class Baton : IBaton
 {
     public Runner Player1 { get; set; }
     public Swimmer Player2 { get; set; }
-    public Сyclist Player3 { get; set; }
+    public Cyclist Player3 { get; set; }
     public Shooter Player4 { get; set; }
 
     public void IsPassedFrom(PlayerBase current)
@@ -27,7 +27,7 @@ public class Baton : IBaton
             current.PassesTo(Player3);
             return;
         }
-        if (current is Сyclist)
+        if (current is Cyclist)
         {
             Console.WriteLine("Baton is passed to next player");
             current.PassesTo(Player4);

@@ -1,8 +1,8 @@
 ﻿using System;
 
-public class Сyclist : PlayerBase
+public class Cyclist : PlayerBase
 {
-    public Сyclist(string action, IBaton baton) : base(action, baton)
+    public Cyclist(string action, IBaton baton) : base(action, baton)
     {
 
     }

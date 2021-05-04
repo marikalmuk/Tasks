@@ -13,7 +13,7 @@ public abstract class PlayerBase
     public void PassesTo(PlayerBase player)
     {
         Console.WriteLine(player.GetType().Name + " gets baton");
-        Console.WriteLine(player.GetType().Name + " is " + _action);
+        Console.WriteLine(player.GetType().Name + " is " + player._action);
         Baton.IsPassedFrom(player);
     }
 }

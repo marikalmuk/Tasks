@@ -9,7 +9,7 @@ namespace ConsoleApp9
             Baton baton = new Baton();
             Runner runner = new Runner("running", baton);
             Swimmer swimmer = new Swimmer("swimming", baton);
-            Сyclist cyclist = new Сyclist("riding", baton);
+            Cyclist cyclist = new Cyclist("riding", baton);
             Shooter shooter = new Shooter("shooting", baton);
 
             baton.Player1 = runner;
